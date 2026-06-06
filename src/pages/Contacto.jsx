@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Mail, Phone, Heart, Star, MapPin, Send } from 'lucide-react'
-import { NAV_LINKS, SOCIAL_LINKS, staggerContainer } from '../data/constants'
+import { Mail, Phone, Heart, Star, MapPin, Send, MessageCircle } from 'lucide-react'
+import { NAV_LINKS, SOCIAL_LINKS, staggerContainer, CONTACT } from '../data/constants'
 import { Button, DecorativeBlob, FadeIn, FloatingIcon, SectionTitle } from '../components/ui/shared'
 
 export default function Contacto() {
@@ -17,7 +17,7 @@ export default function Contacto() {
         <SectionTitle
           badge="Contacto"
           title="Conectemos con confianza"
-          subtitle="Estamos aquí para acompañarte. Escribinos y formemos parte juntos de este ecosistema de cuidado infantil."
+          subtitle="Estamos aquí para acompañarte. Escribinos y formemos parte juntos de este ecosistema de Crianza Sincronizada."
         />
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
@@ -31,13 +31,20 @@ export default function Contacto() {
                 className="h-14 sm:h-16 w-auto mb-6 brightness-110 relative z-10"
               />
 
-              <p className="text-white/85 text-sm sm:text-base leading-relaxed mb-8 relative z-10">
+              <p className="text-white/85 text-sm sm:text-base leading-relaxed mb-6 relative z-10">
                 Transformando el cuidado infantil desde el amor, la formación y la confianza.
               </p>
 
+              <div className="mb-6 relative z-10">
+                <Button href={CONTACT.whatsapp} variant="whatsapp" external className="w-full !py-4">
+                  <MessageCircle className="w-5 h-5" />
+                  Escribinos por WhatsApp
+                </Button>
+              </div>
+
               <div className="space-y-5 relative z-10">
                 <a
-                  href="mailto:info@almainfantil.com"
+                  href={CONTACT.emailHref}
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors group"
                 >
                   <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -45,12 +52,12 @@ export default function Contacto() {
                   </div>
                   <div>
                     <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-0.5">Email</p>
-                    <p className="font-semibold text-sm sm:text-base">info@almainfantil.com</p>
+                    <p className="font-semibold text-sm sm:text-base">{CONTACT.email}</p>
                   </div>
                 </a>
 
                 <a
-                  href="tel:+5491112345678"
+                  href={CONTACT.phoneHref}
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors group"
                 >
                   <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -58,7 +65,7 @@ export default function Contacto() {
                   </div>
                   <div>
                     <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-0.5">Teléfono</p>
-                    <p className="font-semibold text-sm sm:text-base">+54 9 11 1234-5678</p>
+                    <p className="font-semibold text-sm sm:text-base">{CONTACT.phone}</p>
                   </div>
                 </a>
 
@@ -68,7 +75,7 @@ export default function Contacto() {
                   </div>
                   <div>
                     <p className="text-white/60 text-xs font-semibold uppercase tracking-wider mb-0.5">Ubicación</p>
-                    <p className="font-semibold text-sm sm:text-base">Buenos Aires, Argentina</p>
+                    <p className="font-semibold text-sm sm:text-base">{CONTACT.location}</p>
                   </div>
                 </div>
               </div>
@@ -144,6 +151,10 @@ export default function Contacto() {
                 <Button variant="primary" className="w-full !py-4">
                   <Send className="w-4 h-4" />
                   Enviar mensaje
+                </Button>
+                <Button href={CONTACT.whatsapp} variant="whatsapp" external className="w-full !py-4">
+                  <MessageCircle className="w-4 h-4" />
+                  Contactar por WhatsApp
                 </Button>
               </form>
             </div>

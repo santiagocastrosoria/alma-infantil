@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Heart, Star, Cloud } from 'lucide-react'
-import { NAV_LINKS } from '../data/constants'
+import { NAV_LINKS, CONTACT } from '../data/constants'
 import { Button } from './ui/shared'
 
 export default function Navbar({ mobileOpen, setMobileOpen }) {
@@ -72,8 +72,8 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                 {link.label}
               </NavLink>
             ))}
-            <Button to="/contacto" variant="primary" className="!px-5 !py-2.5 !text-sm">
-              Contactanos
+            <Button href={CONTACT.whatsapp} variant="whatsapp" external className="!px-5 !py-2.5 !text-sm">
+              WhatsApp
             </Button>
           </div>
 
@@ -139,12 +139,13 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                     className="mt-4"
                   >
                     <Button
-                      to="/contacto"
-                      variant="primary"
+                      href={CONTACT.whatsapp}
+                      variant="whatsapp"
+                      external
                       className="w-full !py-4 !text-base"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Contactanos
+                      WhatsApp
                     </Button>
                   </motion.div>
                 </div>

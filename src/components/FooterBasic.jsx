@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { Heart } from 'lucide-react'
-import { DecorativeBlob } from './ui/shared'
+import { Heart, MessageCircle } from 'lucide-react'
+import { CONTACT } from '../data/constants'
+import { Button, DecorativeBlob } from './ui/shared'
 
 export default function FooterBasic() {
   return (
@@ -18,9 +19,14 @@ export default function FooterBasic() {
             <p className="text-white/75 text-sm max-w-sm leading-relaxed">
               Transformando el cuidado infantil desde el amor, la formación y la confianza.
             </p>
+            <p className="text-white/50 text-xs mt-2">{CONTACT.location}</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+            <Button href={CONTACT.whatsapp} variant="whatsapp" external className="!px-6 !py-3 !text-sm">
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
+            </Button>
             <Link
               to="/contacto"
               className="px-6 py-3 rounded-full bg-white/15 hover:bg-white/25 text-sm font-semibold transition-all hover:-translate-y-0.5"

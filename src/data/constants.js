@@ -2,20 +2,29 @@ import {
   Heart,
   Star,
   Shield,
-  GraduationCap,
   HandHeart,
   Users,
   BookOpen,
   Calendar,
-  Building2,
   BadgeCheck,
   MessageCircle,
   Globe,
   Lightbulb,
   Award,
-  Crown,
   Handshake,
+  Lock,
+  CheckCircle2,
 } from 'lucide-react'
+
+export const CONTACT = {
+  phone: '+54 9 351 6352554',
+  phoneHref: 'tel:+5493516352554',
+  email: 'almainfantil@gmail.com',
+  emailHref: 'mailto:almainfantil@gmail.com',
+  location: 'Córdoba, Argentina',
+  whatsapp:
+    'https://wa.me/5493516352554?text=Hola%2C%20quiero%20más%20información%20acerca%20de',
+}
 
 export const NAV_LINKS = [
   { label: 'Inicio', path: '/', end: true },
@@ -42,14 +51,6 @@ export const HIGHLIGHT_VALUES = [
     border: 'border-pink-200/60',
   },
   {
-    icon: GraduationCap,
-    title: 'Capacitación',
-    description: 'Formación continua para elevar los estándares del cuidado infantil.',
-    color: 'from-sky-100 to-cyan-50',
-    iconColor: 'text-alma-teal',
-    border: 'border-sky-200/60',
-  },
-  {
     icon: HandHeart,
     title: 'Acompañamiento',
     description: 'Contención emocional y apoyo integral para familias y cuidadoras.',
@@ -68,25 +69,11 @@ export const STATS = [
 
 export const SERVICES = [
   {
-    icon: GraduationCap,
-    title: 'Capacitación profesional',
-    description: 'Programas certificados para niñeras y cuidadoras con enfoque en desarrollo infantil.',
-    color: 'bg-alma-purple-light',
-    iconBg: 'bg-alma-purple/15 text-alma-purple',
-  },
-  {
     icon: BadgeCheck,
     title: 'Validación de perfiles',
     description: 'Proceso riguroso de selección y verificación para garantizar confianza y seguridad.',
     color: 'bg-alma-pink-light',
     iconBg: 'bg-alma-pink/15 text-alma-pink',
-  },
-  {
-    icon: Users,
-    title: 'Mentorías',
-    description: 'Acompañamiento personalizado para el crecimiento profesional de cuidadoras.',
-    color: 'bg-alma-teal-light',
-    iconBg: 'bg-alma-teal/15 text-alma-teal',
   },
   {
     icon: MessageCircle,
@@ -113,13 +100,6 @@ export const SERVICES = [
     icon: Calendar,
     title: 'Eventos y networking',
     description: 'Encuentros presenciales para fortalecer la comunidad y compartir experiencias.',
-    color: 'bg-alma-pink-light',
-    iconBg: 'bg-alma-pink/15 text-alma-pink',
-  },
-  {
-    icon: Building2,
-    title: 'Asesoramiento institucional',
-    description: 'Consultoría especializada para instituciones educativas y centros de cuidado.',
     color: 'bg-alma-teal-light',
     iconBg: 'bg-alma-teal/15 text-alma-teal',
   },
@@ -128,7 +108,7 @@ export const SERVICES = [
 export const GALLERY_IMAGES = [
   { src: '/images/hero-family.png', alt: 'Familia en armonía' },
   { src: '/images/caregiver-child.png', alt: 'Cuidado profesional' },
-  { src: '/images/training.png', alt: 'Capacitación ABC de niñeras' },
+  { src: '/images/training.png', alt: 'Crianza Sincronizada en acción' },
   { src: '/images/baking.png', alt: 'Momento de conexión' },
   { src: '/images/online-learning.png', alt: 'Formación digital' },
   { src: '/images/writing-desk.png', alt: 'Aprendizaje consciente' },
@@ -136,12 +116,15 @@ export const GALLERY_IMAGES = [
 
 export const CORE_VALUES = [
   { icon: Heart, title: 'Empatía', color: 'from-pink-200/80 to-rose-100/60' },
-  { icon: Award, title: 'Compromiso', color: 'from-violet-200/80 to-purple-100/60' },
-  { icon: Shield, title: 'Profesionalismo', color: 'from-sky-200/80 to-cyan-100/60' },
-  { icon: Lightbulb, title: 'Innovación', color: 'from-amber-200/80 to-yellow-100/60' },
-  { icon: Users, title: 'Comunidad', color: 'from-teal-200/80 to-emerald-100/60' },
-  { icon: Crown, title: 'Liderazgo', color: 'from-purple-200/80 to-violet-100/60' },
+  { icon: Award, title: 'Compromiso Social', color: 'from-violet-200/80 to-purple-100/60' },
   { icon: Handshake, title: 'Respeto', color: 'from-rose-200/80 to-pink-100/60' },
+  { icon: Users, title: 'Trabajo en Equipo', color: 'from-teal-200/80 to-emerald-100/60' },
+  { icon: Star, title: 'Excelencia', color: 'from-amber-200/80 to-yellow-100/60' },
+  { icon: Lightbulb, title: 'Innovación', color: 'from-sky-200/80 to-cyan-100/60' },
+  { icon: Shield, title: 'Confianza', color: 'from-purple-200/80 to-violet-100/60' },
+  { icon: BadgeCheck, title: 'Profesionalismo', color: 'from-indigo-200/80 to-blue-100/60' },
+  { icon: Lock, title: 'Seguridad', color: 'from-emerald-200/80 to-green-100/60' },
+  { icon: CheckCircle2, title: 'Responsabilidad', color: 'from-orange-200/80 to-amber-100/60' },
 ]
 
 export const SOCIAL_LINKS = [
@@ -188,3 +171,19 @@ export const pageTransition = {
   exit: { opacity: 0, y: -20 },
   transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
 }
+
+export const QUIENES_SOMOS_TEXT = [
+  'En Alma Infantil creemos que el cuidado infantil va mucho más allá de supervisar a un niño: implica acompañar su desarrollo, fortalecer los vínculos familiares y generar entornos seguros para crecer. Somos una plataforma digital que conecta a las familias con acompañantes infantiles calificadas y previamente evaluadas, integrando tecnología, formación y herramientas de crianza consciente para brindar una experiencia de cuidado confiable y de calidad.',
+  'A través de nuestro sistema de Crianza Sincronizada, ayudamos a que familias y acompañantes trabajen de manera coordinada, compartiendo objetivos, rutinas y criterios educativos. Nuestro compromiso es transformar el cuidado infantil en una experiencia segura, profesional y enriquecedora, contribuyendo al bienestar integral de las infancias y al fortalecimiento de cada hogar.',
+]
+
+export const SERVICIOS_TEXT = [
+  'Alma Infantil ofrece una plataforma integral de Crianza Sincronizada que conecta a las familias con acompañantes infantiles previamente evaluadas y capacitadas, garantizando seguridad, confianza y calidad en el cuidado. A través de herramientas digitales innovadoras, como el Plan de Vuelo Semanal, la plataforma permite coordinar en tiempo real las rutinas, objetivos y pautas de crianza entre las familias y las acompañantes, promoviendo una educación coherente y un entorno estable para los niños.',
+  'Además, Alma Infantil brinda programas de formación continua para acompañantes infantiles en áreas como crianza consciente, pedagogía, gestión emocional y primeros auxilios, fortaleciendo su desarrollo profesional. La plataforma también ofrece recursos y acompañamiento para las familias, facilitando la aplicación de prácticas de crianza respetuosas y conscientes en la vida cotidiana. De esta manera, Alma Infantil transforma el cuidado infantil en una experiencia segura, profesional y colaborativa que favorece el bienestar integral de las infancias.',
+]
+
+export const MISION_TEXT =
+  'Brindar bienestar integral a niños y niñas mediante una plataforma de Crianza Sincronizada que conecta a las familias con acompañantes infantiles altamente capacitadas y previamente evaluadas. A través de tecnología, acompañamiento profesional y herramientas pedagógicas innovadoras, promovemos una crianza coherente, segura y consciente, transformando el cuidado infantil en una experiencia de desarrollo compartido entre familias y acompañantes.'
+
+export const VISION_TEXT =
+  'Ser la plataforma líder en Latinoamérica en cuidado infantil y Crianza Sincronizada, reconocida por elevar los estándares de calidad, seguridad y profesionalización del sector. Aspiramos a construir una red de confianza que transforme la manera en que las familias y las acompañantes trabajan juntas, generando un impacto positivo y sostenible en el desarrollo de las infancias.'

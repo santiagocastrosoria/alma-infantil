@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Heart, Star, Cloud, Sparkles, ArrowRight, Leaf } from 'lucide-react'
-import { HIGHLIGHT_VALUES, STATS, staggerContainer } from '../data/constants'
+import { HIGHLIGHT_VALUES, STATS, staggerContainer, QUIENES_SOMOS_TEXT, CONTACT } from '../data/constants'
 import FooterBasic from '../components/FooterBasic'
 import {
   Button,
@@ -13,12 +13,7 @@ import {
   ValueCard,
 } from '../components/ui/shared'
 
-const INSTITUTIONAL_TEXT = [
-  'Alma Infantil existe para transformar y profesionalizar el sector del cuidado infantil, creando un ecosistema seguro, humano y confiable donde familias y acompañantes infantiles puedan conectarse de manera consciente y responsable.',
-  'La organización nace con el propósito de brindar mayor seguridad, capacitación y respaldo tanto a quienes trabajan en el cuidado de niños como a las familias que buscan un acompañamiento de calidad para sus hijos.',
-  'A través de formación profesional, herramientas de crianza consciente, validación de perfiles y espacios de contención emocional, Alma Infantil busca elevar los estándares del cuidado infantil y generar un impacto positivo en el desarrollo emocional, afectivo y educativo de las infancias.',
-  'Nuestro objetivo es construir una comunidad basada en la confianza, la empatía, el aprendizaje continuo y el bienestar integral de cada niño, familia y profesional que forma parte de este camino.',
-]
+const INSTITUTIONAL_TEXT = QUIENES_SOMOS_TEXT
 
 export default function Home() {
   return (
@@ -81,6 +76,9 @@ export default function Home() {
                 <Button to="/servicios" className="w-full sm:w-auto">
                   Conocer más
                   <ArrowRight className="w-4 h-4" />
+                </Button>
+                <Button href={CONTACT.whatsapp} variant="whatsapp" external className="w-full sm:w-auto">
+                  WhatsApp
                 </Button>
                 <Button to="/contacto" variant="secondary" className="w-full sm:w-auto">
                   Contactanos
@@ -164,7 +162,7 @@ export default function Home() {
           <SectionTitle
             badge="Nuestros pilares"
             title="Construimos confianza en cada detalle"
-            subtitle="Cuatro valores fundamentales que guían cada acción de Alma Infantil."
+            subtitle="Tres pilares fundamentales que guían cada acción de Alma Infantil."
             compact
           />
 
@@ -173,7 +171,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-40px' }}
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto"
           >
             {HIGHLIGHT_VALUES.map((item) => (
               <ValueCard key={item.title} {...item} />

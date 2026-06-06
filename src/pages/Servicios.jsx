@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Heart, Cloud } from 'lucide-react'
-import { SERVICES, GALLERY_IMAGES, STATS, staggerContainer, scaleIn } from '../data/constants'
+import { SERVICES, GALLERY_IMAGES, STATS, staggerContainer, scaleIn, SERVICIOS_TEXT } from '../data/constants'
 import {
   DecorativeBlob,
   FadeIn,
@@ -24,31 +24,14 @@ export default function Servicios() {
         <SectionTitle
           badge="Servicios"
           title="¿Qué ofrece Alma Infantil?"
-          subtitle="Una plataforma integral de cuidado infantil orientada a conectar familias con acompañantes capacitadas y validadas."
+          subtitle="Plataforma integral de Crianza Sincronizada para familias y acompañantes infantiles."
         />
 
         <FadeIn className="max-w-4xl mx-auto mb-12 md:mb-16">
           <div className="space-y-4 text-alma-text-muted text-sm md:text-base leading-relaxed text-center">
-            <p>
-              Alma Infantil ofrece una plataforma integral de cuidado infantil orientada a conectar
-              familias con acompañantes infantiles capacitadas y validadas, brindando un servicio
-              seguro, confiable y profesional.
-            </p>
-            <p>
-              Además de la intermediación laboral, la organización ofrece programas de formación
-              profesional, capacitaciones certificadas, herramientas de crianza consciente,
-              acompañamiento emocional y recursos educativos vinculados al desarrollo infantil.
-            </p>
-            <p>
-              Entre sus principales servicios se encuentran la capacitación para niñeras y
-              cuidadoras, programas de apoyo para familias, mentorías, comunidad digital, eventos
-              presenciales, espacios de networking y asesoramiento para instituciones educativas.
-            </p>
-            <p>
-              Todo el ecosistema está diseñado para mejorar la calidad del cuidado infantil,
-              profesionalizar el sector y generar entornos más saludables, seguros y conscientes
-              para las infancias.
-            </p>
+            {SERVICIOS_TEXT.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
           </div>
         </FadeIn>
 
@@ -57,7 +40,7 @@ export default function Servicios() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14 md:mb-20"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-14 md:mb-20 max-w-5xl mx-auto"
         >
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.title} {...service} index={i} />
@@ -68,7 +51,7 @@ export default function Servicios() {
           <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-violet-200/30 aspect-[16/9] sm:aspect-[21/9] max-h-[320px] sm:max-h-none">
             <ImageFrame
               src="/images/training.png"
-              alt="Capacitación profesional — ABC de niñeras"
+              alt="Crianza Sincronizada — Plan de Vuelo Semanal"
               overlay
               className="h-full"
             />

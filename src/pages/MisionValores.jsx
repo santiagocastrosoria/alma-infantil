@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Target, Eye, Users } from 'lucide-react'
-import { CORE_VALUES, staggerContainer } from '../data/constants'
+import { CORE_VALUES, staggerContainer, MISION_TEXT, VISION_TEXT } from '../data/constants'
 import {
   Button,
   CoreValueCard,
@@ -23,7 +23,7 @@ export default function MisionValores() {
           <SectionTitle
             badge="Propósito"
             title="Misión, Visión y Valores"
-            subtitle="El corazón de Alma Infantil: guiar cada decisión con amor, formación y confianza."
+            subtitle="El corazón de Alma Infantil: Crianza Sincronizada con amor, formación y confianza."
           />
 
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-12 md:mb-16">
@@ -39,10 +39,7 @@ export default function MisionValores() {
                   Misión
                 </h3>
                 <p className="text-alma-text-muted leading-relaxed text-sm sm:text-base">
-                  Brindar formación, acompañamiento y oportunidades de desarrollo a personas
-                  vinculadas al cuidado infantil, promoviendo un entorno más seguro, consciente y
-                  saludable para niños, familias y cuidadoras a través de la educación, la contención
-                  emocional y el fortalecimiento de vínculos humanos.
+                  {MISION_TEXT}
                 </p>
               </motion.div>
             </FadeIn>
@@ -59,10 +56,7 @@ export default function MisionValores() {
                   Visión
                 </h3>
                 <p className="text-alma-text-muted leading-relaxed text-sm sm:text-base">
-                  Ser la principal comunidad educativa y profesional de cuidado infantil en
-                  Latinoamérica, reconocida por transformar la manera en que se entiende y valora el
-                  acompañamiento infantil mediante la innovación, la tecnología y el impacto social
-                  positivo.
+                  {VISION_TEXT}
                 </p>
               </motion.div>
             </FadeIn>
@@ -79,7 +73,7 @@ export default function MisionValores() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4 mb-12 md:mb-16"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-12 md:mb-16 max-w-6xl mx-auto"
           >
             {CORE_VALUES.map((val, i) => (
               <CoreValueCard key={val.title} {...val} index={i} />

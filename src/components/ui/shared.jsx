@@ -57,7 +57,7 @@ export function ImageFrame({ src, alt, className = '', overlay = false }) {
   )
 }
 
-export function Button({ children, variant = 'primary', to, href, onClick, className = '' }) {
+export function Button({ children, variant = 'primary', to, href, onClick, className = '', external = false }) {
   const base =
     'inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-sm md:text-base transition-all duration-300 cursor-pointer'
   const variants = {
@@ -69,6 +69,8 @@ export function Button({ children, variant = 'primary', to, href, onClick, class
       'bg-transparent text-alma-purple border-2 border-alma-purple/30 hover:bg-alma-purple/5 hover:-translate-y-0.5',
     ghost:
       'bg-alma-purple text-white shadow-xl shadow-violet-400/30 hover:shadow-2xl hover:shadow-violet-400/40 hover:-translate-y-1 px-10 py-4 text-lg',
+    whatsapp:
+      'bg-[#25D366] text-white shadow-lg shadow-green-300/40 hover:shadow-xl hover:shadow-green-300/50 hover:-translate-y-0.5',
     nav:
       'w-full justify-start px-5 py-4 rounded-2xl text-base font-semibold bg-white/50 hover:bg-white/80 text-alma-text hover:text-alma-purple border border-violet-100/60',
   }
@@ -95,6 +97,8 @@ export function Button({ children, variant = 'primary', to, href, onClick, class
       <motion.a
         href={href}
         className={classes}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noopener noreferrer' : undefined}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
