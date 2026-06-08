@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Heart, Star, Cloud } from 'lucide-react'
+import { Menu, X, Heart, Star, Cloud, LogOut } from 'lucide-react'
 import { NAV_LINKS, CONTACT } from '../data/constants'
+import { useAuth, getFirstName } from '../context/AuthContext'
 import { Button } from './ui/shared'
 
 export default function Navbar({ mobileOpen, setMobileOpen }) {
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const { user, logout } = useAuth()
+  const firstName = user ? getFirstName(user.name) : ''
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -25,6 +28,11 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
       document.body.style.overflow = ''
     }
   }, [mobileOpen])
+
+  const handleLogout = () => {
+    setMobileOpen(false)
+    logout()
+  }
 
   const navLinkClass = ({ isActive }) =>
     `text-sm font-semibold transition-colors relative py-1 ${
@@ -52,7 +60,7 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
             : 'bg-white/30 backdrop-blur-md'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16 md:h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center gap-2 sm:gap-3 h-16 md:h-20">
           <Link to="/" className="flex items-center gap-3 group shrink-0">
             <img
               src="/images/logo.png"
@@ -61,7 +69,20 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
             />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          {user && (
+            <motion.div
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="flex-1 min-w-0 flex justify-center md:justify-start md:pl-2"
+            >
+              <p className="text-xs sm:text-sm font-semibold text-alma-text truncate text-center md:text-left">
+                Bienvenido/a{' '}
+                <span className="text-alma-purple">{firstName}</span>
+              </p>
+            </motion.div>
+          )}
+
+          <div className="hidden md:flex items-center gap-8 shrink-0 ml-auto">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.path}
@@ -79,7 +100,7 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
 
           <button
             type="button"
-            className="md:hidden relative z-[60] w-11 h-11 flex items-center justify-center rounded-xl bg-alma-purple-light/80 text-alma-purple cursor-pointer hover:bg-violet-200/80 transition-colors"
+            className="md:hidden relative z-[60] w-11 h-11 flex items-center justify-center rounded-xl bg-alma-purple-light/80 text-alma-purple cursor-pointer hover:bg-violet-200/80 transition-colors shrink-0 ml-auto md:ml-0"
             onClick={() => setMobileOpen((open) => !open)}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={mobileOpen}
@@ -108,12 +129,12 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="fixed inset-x-0 top-16 bottom-0 z-[58] md:hidden overflow-y-auto"
             >
-              <div className="relative h-full px-4 py-6">
+              <div className="relative h-full px-4 py-6 flex flex-col">
                 <Cloud className="absolute top-8 right-8 w-8 h-8 text-alma-sky/30 pointer-events-none" />
                 <Star className="absolute top-24 left-6 w-5 h-5 text-alma-yellow/40 pointer-events-none" />
                 <Heart className="absolute bottom-32 right-10 w-6 h-6 text-alma-pink/30 pointer-events-none" />
 
-                <div className="flex flex-col gap-3 max-w-md mx-auto">
+                <div className="flex flex-col gap-3 max-w-md mx-auto w-full flex-1">
                   {NAV_LINKS.map((link, i) => (
                     <motion.div
                       key={link.path}
@@ -149,6 +170,18 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                     </Button>
                   </motion.div>
                 </div>
+
+                <motion.button
+                  type="button"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  onClick={handleLogout}
+                  className="flex items-center justify-center gap-2 w-full max-w-md mx-auto mt-6 py-3 text-sm font-medium text-alma-text-muted hover:text-alma-purple transition-colors cursor-pointer"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Cerrar sesión
+                </motion.button>
               </div>
             </motion.div>
           </>
