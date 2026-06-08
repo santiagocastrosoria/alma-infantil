@@ -1,10 +1,22 @@
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Mail, Phone, Heart, Star, MapPin, Send, MessageCircle } from 'lucide-react'
 import { NAV_LINKS, SOCIAL_LINKS, staggerContainer, CONTACT } from '../data/constants'
 import { Button, DecorativeBlob, FadeIn, FloatingIcon, SectionTitle } from '../components/ui/shared'
 
 export default function Contacto() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash === '#formulario') {
+      const el = document.getElementById('formulario')
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+      }
+    }
+  }, [location])
+
   return (
     <div className="relative overflow-hidden min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]">
       <DecorativeBlob className="w-96 h-96 -left-32 top-20" color="bg-alma-purple/10" />
@@ -101,7 +113,7 @@ export default function Contacto() {
           </FadeIn>
 
           <FadeIn delay={1}>
-            <div className="p-6 sm:p-8 md:p-10 rounded-3xl bg-white/80 backdrop-blur-sm border border-violet-100/60 shadow-xl shadow-violet-100/40">
+            <div id="formulario" className="scroll-mt-24 p-6 sm:p-8 md:p-10 rounded-3xl bg-white/80 backdrop-blur-sm border border-violet-100/60 shadow-xl shadow-violet-100/40">
               <h3 className="font-display text-xl sm:text-2xl font-bold text-alma-text mb-2">
                 Envianos un mensaje
               </h3>

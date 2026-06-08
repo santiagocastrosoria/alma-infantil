@@ -187,3 +187,68 @@ export const MISION_TEXT =
 
 export const VISION_TEXT =
   'Ser la plataforma líder en Latinoamérica en cuidado infantil y Crianza Sincronizada, reconocida por elevar los estándares de calidad, seguridad y profesionalización del sector. Aspiramos a construir una red de confianza que transforme la manera en que las familias y las acompañantes trabajan juntas, generando un impacto positivo y sostenible en el desarrollo de las infancias.'
+
+export const ORGANIGRAM_INTRO =
+  'Alma Infantil cuenta con una estructura organizacional funcional, diseñada para acompañar el crecimiento de la empresa de manera eficiente. La organización está liderada por la Fundadora, quien coordina las principales decisiones y supervisa el funcionamiento general.\n\nLa empresa se organiza en tres áreas principales:'
+
+export const ORGANIGRAM_AREAS = [
+  {
+    title: 'Operaciones Pedagógicas y Calidad',
+    description:
+      'Responsable de la formación, los contenidos educativos, las certificaciones y la calidad de los servicios.',
+    color: 'from-teal-100 to-cyan-50',
+    iconColor: 'text-alma-teal',
+    border: 'border-teal-200/60',
+  },
+  {
+    title: 'Tecnología, Administración y Finanzas',
+    description:
+      'Encargada de la plataforma digital, la administración de recursos y la gestión financiera.',
+    color: 'from-amber-100 to-yellow-50',
+    iconColor: 'text-amber-600',
+    border: 'border-amber-200/60',
+  },
+  {
+    title: 'Comunidad, Marketing y Atención de Familias',
+    description:
+      'Responsable de la comunicación de la marca, la atención a usuarios, las redes sociales y la construcción de comunidad.',
+    color: 'from-pink-100 to-rose-50',
+    iconColor: 'text-alma-pink',
+    border: 'border-pink-200/60',
+  },
+]
+
+export const HOW_IT_WORKS_STEPS = [
+  { step: 1, title: 'Registrarse', description: 'Crear perfil como familia o acompañante.' },
+  { step: 2, title: 'Diagnóstico inicial', description: 'Identificamos necesidades y objetivos de crianza.' },
+  { step: 3, title: 'Plan de Vuelo', description: 'Recibís un plan semanal personalizado.' },
+  { step: 4, title: 'Seguimiento', description: 'Todos trabajan coordinados y visualizan los avances.' },
+  { step: 5, title: 'Crianza Feliz', description: 'Niños seguros y familias tranquilas.' },
+]
+
+export const HOW_IT_WORKS_CLOSING =
+  'Este recorrido refleja la esencia de Alma Infantil: acompañar, formar y fortalecer tanto a las familias como a quienes trabajan en el cuidado infantil mediante un proceso cercano, profesional y personalizado.'
+
+export const PLAN_VUELO_TEXT = [
+  'El Plan de Vuelo es la herramienta principal de Alma Infantil y permite coordinar el trabajo entre la familia y la acompañante infantil a través de objetivos de desarrollo definidos para cada semana.',
+  'Según la edad, necesidades e intereses del niño, la plataforma propone un eje pedagógico semanal, como gestión de emociones, autonomía, creatividad o comunicación. A partir de este eje, se generan actividades, dinámicas y recomendaciones que son compartidas tanto con la acompañante como con la familia.',
+  'De esta manera, todos los adultos involucrados en el cuidado trabajan de forma sincronizada, promoviendo una experiencia educativa coherente, personalizada y orientada al desarrollo integral del niño.',
+]
+
+export const FORMATION_TEXT = [
+  'En Alma Infantil formamos acompañantes infantiles mediante el programa ABC de Niñeras preparándolas para brindar un cuidado seguro, consciente y de calidad.',
+  'Nuestro programa combina contenidos de desarrollo infantil, crianza respetuosa, inteligencia emocional, comunicación, resolución de conflictos y primeros auxilios.',
+  'Además, las participantes aprenden a implementar el sistema de Crianza Sincronizada y el Plan de Vuelo semanal, permitiendo trabajar de manera coordinada con las familias para favorecer el bienestar y desarrollo de cada niño.',
+  'Al finalizar la capacitación, obtienen una certificación que respalda sus competencias y las integra a una comunidad comprometida con la excelencia en el cuidado infantil.',
+]
+
+export const FORMATION_TOPICS = [
+  'Desarrollo Infantil',
+  'Crianza Respetuosa',
+  'Inteligencia Emocional',
+  'Comunicación',
+  'Resolución de Conflictos',
+  'Primeros Auxilios',
+  'Crianza Sincronizada',
+  'Plan de Vuelo Semanal',
+]

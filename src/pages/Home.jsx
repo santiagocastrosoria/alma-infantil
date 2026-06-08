@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Heart, Star, Cloud, Sparkles, ArrowRight, Leaf } from 'lucide-react'
-import { HIGHLIGHT_VALUES, STATS, staggerContainer, QUIENES_SOMOS_TEXT, CONTACT } from '../data/constants'
+import { HIGHLIGHT_VALUES, STATS, staggerContainer, QUIENES_SOMOS_TEXT } from '../data/constants'
 import FooterBasic from '../components/FooterBasic'
 import {
   Button,
@@ -51,9 +51,8 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.7 }}
                 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-alma-text leading-[1.15] mb-5 md:mb-6"
               >
-                Transformando el cuidado infantil con{' '}
                 <span className="bg-gradient-to-r from-alma-purple via-alma-pink to-alma-teal bg-clip-text text-transparent">
-                  profesionalismo, empatía y confianza.
+                  Crianza sincronizada, infancias felices
                 </span>
               </motion.h1>
 
@@ -63,8 +62,8 @@ export default function Home() {
                 transition={{ delay: 0.35 }}
                 className="text-sm sm:text-base md:text-lg text-alma-text-muted leading-relaxed mb-7 md:mb-8 max-w-xl mx-auto lg:mx-0"
               >
-                Creamos un ecosistema seguro y humano donde familias y acompañantes infantiles
-                pueden conectarse de manera consciente y responsable.
+                La primera plataforma que conecta familias con acompañantes infantiles verificadas y las
+                guía con un Plan de Vuelo Semanal para una crianza consciente y en equipo.
               </motion.p>
 
               <motion.div
@@ -73,15 +72,12 @@ export default function Home() {
                 transition={{ delay: 0.5 }}
                 className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start"
               >
-                <Button to="/servicios" className="w-full sm:w-auto">
-                  Conocer más
+                <Button to="/contacto#formulario" className="w-full sm:w-auto !px-8 !py-4 !text-base">
+                  Busco una acompañante
                   <ArrowRight className="w-4 h-4" />
                 </Button>
-                <Button href={CONTACT.whatsapp} variant="whatsapp" external className="w-full sm:w-auto">
-                  WhatsApp
-                </Button>
-                <Button to="/contacto" variant="secondary" className="w-full sm:w-auto">
-                  Contactanos
+                <Button to="/contacto#formulario" variant="secondary" className="w-full sm:w-auto !px-8 !py-4 !text-base">
+                  Quiero ser acompañante
                 </Button>
               </motion.div>
             </div>
