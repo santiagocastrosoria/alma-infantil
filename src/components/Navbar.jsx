@@ -82,7 +82,9 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
             </motion.div>
           )}
 
-          <div className="hidden md:flex items-center gap-8 shrink-0 ml-auto">
+          {!user && <div className="flex-1 md:hidden" />}
+
+          <div className="hidden md:flex items-center gap-6 shrink-0 ml-auto">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.path}
@@ -93,6 +95,20 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                 {link.label}
               </NavLink>
             ))}
+            {!user && (
+              <Button to="/login" variant="secondary" className="!px-5 !py-2.5 !text-sm">
+                Iniciar Sesión
+              </Button>
+            )}
+            {user && (
+              <button
+                type="button"
+                onClick={logout}
+                className="text-sm font-medium text-alma-text-muted hover:text-alma-purple transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Cerrar sesión
+              </button>
+            )}
             <Button href={CONTACT.whatsapp} variant="whatsapp" external className="!px-5 !py-2.5 !text-sm">
               WhatsApp
             </Button>
@@ -153,11 +169,28 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                     </motion.div>
                   ))}
 
+                  {!user && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <Button
+                        to="/login"
+                        variant="secondary"
+                        className="w-full !py-4 !text-base"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        Iniciar Sesión
+                      </Button>
+                    </motion.div>
+                  )}
+
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="mt-4"
+                    className="mt-2"
                   >
                     <Button
                       href={CONTACT.whatsapp}
@@ -171,17 +204,19 @@ export default function Navbar({ mobileOpen, setMobileOpen }) {
                   </motion.div>
                 </div>
 
-                <motion.button
-                  type="button"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  onClick={handleLogout}
-                  className="flex items-center justify-center gap-2 w-full max-w-md mx-auto mt-6 py-3 text-sm font-medium text-alma-text-muted hover:text-alma-purple transition-colors cursor-pointer"
-                >
-                  <LogOut className="w-4 h-4" />
-                  Cerrar sesión
-                </motion.button>
+                {user && (
+                  <motion.button
+                    type="button"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    onClick={handleLogout}
+                    className="flex items-center justify-center gap-2 w-full max-w-md mx-auto mt-6 py-3 text-sm font-medium text-alma-text-muted hover:text-alma-purple transition-colors cursor-pointer"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Cerrar sesión
+                  </motion.button>
+                )}
               </div>
             </motion.div>
           </>
